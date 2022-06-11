@@ -29,7 +29,6 @@ def move(file_from, file_to, type_: str) -> None:
 def check_twin_file(final_path_file, src_dir, file_, type_: str) -> bool:
     if os.path.exists(final_path_file):
         src_file_path_twin = os.path.join(src_dir, (current_milli_time() + '____' + file_))
-        # print(f"________________\nEXIST:\t\t{file_}\n_______________\nsrc_dir:\t\t{src_dir}\\{file_}\n_____________\nsct_file_path_twin:\t{src_file_path_twin}\n________________\n")
         os.rename(f'{src_dir}\\{file_}', src_file_path_twin)
         move(src_file_path_twin, root_end_dir, type_)
         return True
@@ -61,7 +60,7 @@ def check_dirs(start_dir: str) -> None:
                 check_dirs(f'{start_dir}\\{dir_}')
 
 
-root_start_dir = 'E:\\Code\\Python\\check_all_img\\check' #flash_drive
+root_start_dir = 'E:\\Code\\Python\\check_all_img\\check' #flash_drive or path to dir
 root_end_dir = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop') + '\\files'
 type_of_files = ['png', 'jpg', 'jpeg', 'jfif', 'gif', 'webp',
                  'mp3', 'wma', 'wav',
